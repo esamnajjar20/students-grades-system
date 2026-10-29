@@ -26,6 +26,16 @@ public class ArrayBag<T> {
         return false;
     }
 
+    public int frequencyOf(T item) {
+        int freq = 0;
+        for (int i = 0; i < count; i++) {
+            if (items[i].equals(item)) {
+                freq++;
+            }
+        }
+        return freq;
+    }
+
     public int size() {
         return count;
     }
