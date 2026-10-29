@@ -25,12 +25,35 @@ public class StudentManager {
         if (count == MAX) {
             return "Storage is full";
         }
-
         ids[count] = id;
         names[count] = name;
         grades[count] = grade;
         count++;
         return null;
+    }
+
+    public Student searchById(int id) {
+        for (int i = 0; i < count; i++) {
+            if (ids[i] == id) {
+                return new Student(ids[i], names[i], grades[i]);
+            }
+        }
+        return null;
+    }
+
+    public boolean removeById(int id) {
+        for (int i = 0; i < count; i++) {
+            if (ids[i] == id) {
+                for (int j = i; j < count - 1; j++) {
+                    ids[j] = ids[j + 1];
+                    names[j] = names[j + 1];
+                    grades[j] = grades[j + 1];
+                }
+                count--;
+                return true;
+            }
+        }
+        return false;
     }
 
     public int getCount() { return count; }
