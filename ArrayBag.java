@@ -17,6 +17,15 @@ public class ArrayBag<T> {
         count++;
     }
 
+    public boolean contains(T item) {
+        for (int i = 0; i < count; i++) {
+            if (items[i].equals(item)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int size() {
         return count;
     }
