@@ -1,11 +1,20 @@
 public class ArrayBag<T> {
-    private T[] items;      // مصفوفة عادية لتخزين العناصر
-    private int count;      // عدد العناصر الحالي
+    private T[] items;
+    private int count;
 
     @SuppressWarnings("unchecked")
     public ArrayBag(int capacity) {
         items = (T[]) new Object[capacity];
         count = 0;
+    }
+
+    public void add(T item) {
+        if (count == items.length) {
+            System.out.println("Bag is full");
+            return;
+        }
+        items[count] = item;
+        count++;
     }
 
     public int size() {
