@@ -36,6 +36,20 @@ public class ArrayBag<T> {
         return freq;
     }
 
+    public boolean remove(T item) {
+        for (int i = 0; i < count; i++) {
+            if (items[i].equals(item)) {
+                for (int j = i; j < count - 1; j++) {
+                    items[j] = items[j + 1];
+                }
+                items[count - 1] = null;
+                count--;
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int size() {
         return count;
     }
